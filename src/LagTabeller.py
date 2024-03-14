@@ -40,7 +40,7 @@ def LagTabeller():
         CREATE TABLE Sal (
             SalNavn VARCHAR(50),
             SID INT NOT NULL,
-            PRIMARY KEY (SalNavn(50)), 
+            PRIMARY KEY (SalNavn), 
             FOREIGN KEY (SID) REFERENCES TeaterStykke(SID)
         );
         '''
@@ -52,7 +52,7 @@ def LagTabeller():
             Område VARCHAR(50),
             RadNr INT,
             SeteNr INT,
-            PRIMARY KEY (Område(50), RadNr, SeteNr)
+            PRIMARY KEY (Område, RadNr, SeteNr)
         );
         '''
     )
@@ -62,7 +62,7 @@ def LagTabeller():
         CREATE TABLE OmrådeISal (
             Område VARCHAR(50),
             SalNavn VARCHAR(50) NOT NULL,
-            PRIMARY KEY (Område(50), SalNavn(50)),
+            PRIMARY KEY (Område, SalNavn),
             FOREIGN KEY (SalNavn) REFERENCES Sal(SalNavn)
         );
         '''
