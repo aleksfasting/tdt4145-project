@@ -11,14 +11,15 @@ WHERE (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         NATURAL JOIN BillettSete)
                                         NATULAR JOIN BillettKjøpForestilling
                                         WHERE Tid = 18.30)
-GROUP BY Område, RadNr""")
+GROUP BY Område, RadNr
+HAVING AntallLedige > 8""")
 
 ret = cursor.fetchall()
 print(ret)
 
-dt = datetime.now()
+dt = datetime.datetime.now()
 
-if ret:
+if False:
     valgtRad = ret[0]
     cursor.execute(
 """INERT INTO BillettKjøpKunde
