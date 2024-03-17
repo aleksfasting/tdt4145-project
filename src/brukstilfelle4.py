@@ -1,5 +1,7 @@
-#from connection import con
+from connection import con
 import datetime
+
+cursor = con.cursor()
 
 ### Funksjon for å sjekke at datoen er gyldig
 def checkDate(dateArg):
@@ -24,5 +26,24 @@ def checkDate(dateArg):
 
 
 ### Spør bruker om gyldig dato
-date = input("Date: (yyyy-mm-dd) ")    
+date = input("Select date: (yyyy-mm-dd) ")
 checkDate(date)
+
+
+
+### Finn alle forestillinger på datoen
+### Bruker GROUP BY og COUNT for å finne antall billetter
+### Antall rader for en forestilling blir lik antall billetter siden det finnes 
+###     en 1-1 relasjon fra billett til forestilling gjennom BillettKjøp
+cursor.execute(
+"""SELECT SID, Navn, F.Dato, F.Tid, COUNT(*) AS AntallBilletter
+FROM    Forestilling AS F NATURAL JOIN (
+        BillettKjøpForestilling NATURAL JOIN BillettSete)
+        NATURAL JOIN TeaterStykke
+WHERE F.Dato = ?
+GROUP BY SID, Navn, F.Dato, F.Tid""",
+(date, )
+)
+
+result = cursor.fetchall()
+print(result)
