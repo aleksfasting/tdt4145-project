@@ -1,7 +1,4 @@
-#from connection import con
-import sqlite3
-
-con = sqlite3.connect("teaterDB.db")
+from connection import con
 
 cursor = con.cursor()
 
@@ -12,6 +9,7 @@ VALUES (1, 'Anonym', 'Adresse')"""
 
 # gamle scene
 
+### Sette inn billettkjøp
 cursor.execute(
 """INSERT INTO BillettKjøpKunde
 VALUES (1, 1)"""
@@ -27,6 +25,8 @@ cursor.execute(
 VALUES (1, '2024-02-03', '19.00')"""
 )
 
+
+### Hente data fra fil
 fd = open("src/gamle-scene.txt")
 dateGS = fd.readline()
 
@@ -47,11 +47,18 @@ while True:
         seterGS[område].append(seterRad)
         continue
 
+
+### Sett inn data i db
 num = 0
 
 for område in seterGS.keys():
     for radNr in range(len(seterGS[område])):
         for seteNr in range(len(seterGS[område][radNr])):
+            cursor.execute(
+"""INSERT INTO Sete
+Values (?, ?, ?)""",
+(område, radNr, seteNr)
+            )
             if seterGS[område][radNr][seteNr] == '1':
                 cursor.execute(
 """INSERT INTO BillettOmråde
@@ -81,6 +88,7 @@ VALUES (1, ?, 1)""",
 
 # hovedscenen
 
+### Sette inn billettkjøp
 cursor.execute(
 """INSERT INTO BillettKjøpKunde
 Values (2, 1)"""
@@ -96,6 +104,8 @@ cursor.execute(
 VALUES (2, '2024-02-03', '18.30')"""
 )
 
+
+### Hente data fra fil
 fd = open("src/hovedscenen.txt")
 dateHS = fd.readline()
 
@@ -116,6 +126,7 @@ while True:
         seterHS[område].append(seterRad)
         continue
 
+### Sette inn data i db
 num = 0
 
 for område in seterHS.keys():
@@ -144,6 +155,7 @@ VALUES (2,?, 1)""",
                 )
                 num += 1
 
-con.commit()
 
+### Lagre db
+con.commit()
 con.close()
