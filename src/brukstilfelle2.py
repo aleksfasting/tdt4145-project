@@ -4,7 +4,7 @@ cursor = con.cursor()
 
 cursor.execute(
 """INSERT INTO Kunde
-VALUES (1, 'Anonym', 'Adresse')"""
+VALUES (1, NULL, NULL)"""
 )
 
 # gamle scene
@@ -128,11 +128,13 @@ while True:
 
 ### Sette inn data i db
 num = 0
-
-for område in seterHS.keys():
+områder = ['Parkett', 'Galleri']
+seteNr = 0
+for område in områder:
     for radNr in range(len(seterHS[område])):
-        for seteNr in range(len(seterHS[område][radNr])):
-            if seterHS[område][radNr][seteNr] == '1':
+        for i in range(len(seterHS[område][radNr])):
+            seteNr += 1
+            if seterHS[område][radNr][i] == '1':
                 cursor.execute(
 """INSERT INTO BillettOmråde
 VALUES (2, ?, ?)""",
@@ -141,7 +143,7 @@ VALUES (2, ?, ?)""",
                 cursor.execute(
 """INSERT INTO BillettRadNr
 VALUES (2, ?, ?)""",
-(num, radNr)
+(num, radNr + 1)
                 )
                 cursor.execute(
 """INSERT INTO BillettSete
