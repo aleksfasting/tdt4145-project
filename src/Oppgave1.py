@@ -152,3 +152,4 @@ def SettInnMedvirkende():
 def SettInnStoler():
     
 
+
