@@ -164,6 +164,8 @@ INSERT INTO RolleIAkt(`SID`, `RolleNavn`, `AktNr`) VALUES
     (2,'Natalie Grøndahl Tangen',1),
     (2,'Åsmund Flaten',1);
 
+INSERT INTO spillerrolle(`PID`,`SID`,`RolleNavn`)
+
     
 
 
