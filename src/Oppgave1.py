@@ -48,7 +48,13 @@ def SettInnSete():
 VALUES (?, ?, ?)""",
 (område, radNr+1, seteNr + 1)
                 )
+
+    cursor.commit()
+    cursor.close()
     
+    return  ### jeg returnerer her fordi det er strukturelle problemer 
+            ### med oppgaven vår som tar lang tid å fikse
+
     seterHS = leseDataHS()
     områderHS = ['Parkett', 'Galleri']
     seteNr = 0
