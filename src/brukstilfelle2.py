@@ -76,11 +76,6 @@ def settInnBilletterGS(seterGS):
     for område in seterGS.keys():
         for radNr in range(len(seterGS[område])):
             for seteNr in range(len(seterGS[område][radNr])):
-                cursor.execute(
-"""INSERT INTO Sete
-Values (?, ?, ?)""",
-(område, radNr, seteNr)
-            )
                 if seterGS[område][radNr][seteNr] == '1':
                     cursor.execute(
 """INSERT INTO BillettOmråde
@@ -126,6 +121,7 @@ def leseDataHS():
                 seterRad.append(rad[i])
             seterHS[område].append(seterRad)
             continue
+    return seterHS
 
 
 

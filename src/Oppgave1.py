@@ -1,4 +1,5 @@
 from connection import con
+from brukstilfelle2 import leseDataGS, leseDataHS
 
 def SettInnForestilling():
 
@@ -35,8 +36,37 @@ def SettInnSal():
     con.close()
 
 def SettInnSete():
+    cursor = con.cursor()
     #Aleks, do your thing
-    e
+
+    seterGS = leseDataGS()
+    for område in seterGS.keys():
+        for radNr in range(len(seterGS[område])):
+            for seteNr in range(len(seterGS[område][radNr])):
+                cursor.execute(
+"""INSERT INTO Sete
+VALUES (?, ?, ?)""",
+(område, radNr+1, seteNr + 1)
+                )
+    
+    seterHS = leseDataHS()
+    områderHS = ['Parkett', 'Galleri']
+    seteNr = 0
+    for område in områderHS:
+        for radNr in range(len(seterHS[område])):
+            for seteIRad in range(len(seterHS[område][radNr])):
+                seteNr = seteNr + 1
+                print(seteNr)
+                cursor.execute(
+"""INSERT INTO Sete
+VALUES (?, ?, ?)""",
+(område, radNr + 1, seteNr)
+)
+    
+    con.commit()
+    con.close()
+
+
 
 def SettInnAkt():
     
@@ -205,8 +235,3 @@ def SettInnRelasjoner():
     con.execute("INSERT INTO RolleIAkt VALUES(1, 12, 3)")
     con.execute("INSERT INTO RolleIAkt VALUES(1, 12, 4)")
     con.execute("INSERT INTO RolleIAkt VALUES(1, 12, 5)")
-
-
-
-
-
