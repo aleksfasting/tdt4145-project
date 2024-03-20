@@ -37,37 +37,71 @@ def SettInnSal():
 
 def SettInnSete():
     cursor = con.cursor()
-    #Aleks, do your thing
+    seteID = 0
 
+    ### Gamle Scene
     seterGS = leseDataGS()
     for område in seterGS.keys():
         for radNr in range(len(seterGS[område])):
             for seteNr in range(len(seterGS[område][radNr])):
                 cursor.execute(
-"""INSERT INTO Sete
-VALUES (?, ?, ?)""",
-(område, radNr+1, seteNr + 1)
+                """INSERT INTO SeteTilSete
+                VALUES (?, ?)""",
+                (seteID, seteNr)
                 )
 
-    cursor.commit()
-    cursor.close()
-    
-    return  ### jeg returnerer her fordi det er strukturelle problemer 
-            ### med oppgaven vår som tar lang tid å fikse
+                cursor.execute(
+                """INSERT INTO RadTilSete
+                VALUES (?, ?)""",
+                (seteID, radNr)
+                )
 
+                cursor.execute(
+                """INSERT INTO OmrådeTilSete
+                VALUES (?, ?)""",
+                (seteID, område)
+                )
+
+                cursor.execute(
+                """INSERT INTO SalTilSete
+                VALUES (?, 'Gamle Scene')""",
+                (seteID, )
+                )
+                seteID += 1
+
+
+    ### Hovedscenen
     seterHS = leseDataHS()
     områderHS = ['Parkett', 'Galleri']
     seteNr = 0
     for område in områderHS:
         for radNr in range(len(seterHS[område])):
             for seteIRad in range(len(seterHS[område][radNr])):
-                seteNr = seteNr + 1
-                print(seteNr)
+                seteNr += 1
                 cursor.execute(
-"""INSERT INTO Sete
-VALUES (?, ?, ?)""",
-(område, radNr + 1, seteNr)
-)
+                """INSERT INTO SeteTilSete
+                VALUES (?, ?)""",
+                (seteID, seteNr)
+                )
+                
+                cursor.execute(
+                """INSERT INTO RadTilSete
+                VALUES (?, ?)""",
+                (seteID, radNr)
+                )
+                
+                cursor.execute(
+                """INSERT INTO OmrådeTilSete
+                VALUES (?, ?)""",
+                (seteID, område)
+                )
+
+                cursor.execute(
+                """INSERT INTO SalTilSete
+                VALUES (?, 'Hovedscenen')""",
+                (seteID, )
+                )
+                seteID += 1
     
     con.commit()
     con.close()
@@ -241,3 +275,5 @@ def SettInnRelasjoner():
     con.execute("INSERT INTO RolleIAkt VALUES(1, 12, 3)")
     con.execute("INSERT INTO RolleIAkt VALUES(1, 12, 4)")
     con.execute("INSERT INTO RolleIAkt VALUES(1, 12, 5)")
+
+SettInnSete()
