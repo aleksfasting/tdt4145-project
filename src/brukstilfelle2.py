@@ -17,12 +17,12 @@ VALUES (1, 1)"""
 
     cursor.execute(
 """INSERT INTO BillettKjøpsDato
-VALUES (1, '0-0-0', '00.00')"""
+VALUES (1, NULL, NULL)"""
 )
 
     cursor.execute(
 """INSERT INTO BillettKjøpForestilling
-VALUES (1, '2024-02-03', '19.00')"""
+VALUES (1, '2024-02-03', '19:00')"""
 )
 
 
@@ -35,12 +35,12 @@ Values (2, 1)"""
 
     cursor.execute(
 """INSERT INTO BillettKjøpsDato
-VALUES (2, '0-0-0', '00.00')"""
+VALUES (2, NULL, NULL)"""
 )
 
     cursor.execute(
 """INSERT INTO BillettKjøpForestilling
-VALUES (2, '2024-02-03', '18.30')"""
+VALUES (2, '2024-02-03', '18:30')"""
 )
 
 
