@@ -58,7 +58,7 @@ INSERT INTO Person(`PID`,`Navn`,`Epost`,`Status`) VALUES
     (7,'Thomas Jensen Takyi', 'thta@gmail.com', 'Freelance'),
     (8,'Per Bogstad Gulliksen', 'pegu@gmail.com', 'Freelance'),
     (9, 'Isak Holmen Sørensen', 'issø@gmail.com', 'Freelance'),
-    (10,'Fabian Heidelberg Lunde', 'falu@gmail.com', 'Freelance')
+    (10,'Fabian Heidelberg Lunde', 'falu@gmail.com', 'Freelance'),
     (11,'Emil Olafsson', 'emol@gmail.com', 'Freelance'),
     (12,'Snorre Ryen Tøndel', 'sntø@gmail.com', 'Freelance'),
     (13,'Yury Butusov','yubu@gmail.com', 'Freelance'),
@@ -76,8 +76,7 @@ INSERT INTO Person(`PID`,`Navn`,`Epost`,`Status`) VALUES
     (25,'David Gehrt', 'dage@gmail.com', 'Freelance'),
     (26,'Gaute Tønder','gatø@gmail.com', 'Freelance'),
     (27,'Magnus Mikaelsen', 'mami@gmail.com', 'Freelance'),
-    (28,'Kristoffer Spender', 'krsp@gmail.com', 'Freelance')
-    ON CONFLICT (`Epost`) DO NOTHING;
+    (28,'Kristoffer Spender', 'krsp@gmail.com', 'Freelance');
 
 INSERT INTO Skuespiller(`PID`) VALUES 
     (1),
@@ -100,7 +99,7 @@ INSERT INTO Skuespiller(`PID`) VALUES
     (22),
     (23);
 
-INSERT INTO personell(`PID`) VALUES
+INSERT INTO Personell(`PID`) VALUES
     (13),
     (14),
     (15),
@@ -111,7 +110,7 @@ INSERT INTO personell(`PID`) VALUES
     (27),
     (28);
 
- #Kongsemnene
+    /* Kongsemnene */
 INSERT INTO RolleIAkt(`SID`,`RolleNavn`,`AktNr`) VALUES
     (1, 'Haakon Haakonssønn', 1),
     (1, 'Haakon Haakonssønn', 2),
@@ -154,7 +153,7 @@ INSERT INTO RolleIAkt(`SID`,`RolleNavn`,`AktNr`) VALUES
     (1, 'Peter', 4),
     (1, 'Peter', 5);
 
-    #Størst av alt er kjærligheten
+    /* Størst av alt er kjærligheten */
 INSERT INTO RolleIAkt(`SID`, `RolleNavn`, `AktNr`) VALUES
     (2,'Sunniva Du Mond Nordal',1),
     (2,'Jo Sabiernak',1),
@@ -164,7 +163,7 @@ INSERT INTO RolleIAkt(`SID`, `RolleNavn`, `AktNr`) VALUES
     (2,'Natalie Grøndahl Tangen',1),
     (2,'Åsmund Flaten',1);
 
-INSERT INTO spillerrolle(`PID`,`SID`,`RolleNavn`) VALUES
+INSERT INTO SpillerRolle(`PID`,`SID`,`RolleNavn`) VALUES
     (1, 1,'Haakon Haakonssønn'),
     (2, 1,'Inga fra Vartejg'),
     (3, 1,'Skule Jarl'),
@@ -196,11 +195,5 @@ INSERT INTO medvirker(`PID`,`SID`,`Jobb`) VALUES
     (27, 2, 'Lysdesign'),
     (28, 2, 'Dramaturg');
 
-INSERT INTO sete(`Område`,`RadNr`,`SeteNr`) VALUES
-    ()
-
-    
-
-
-
-
+INSERT INTO Type(`TypeID`, `Navn`, `Pris`) VALUES
+    (1, 'Voksen', 199.99);
