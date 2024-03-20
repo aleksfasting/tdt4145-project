@@ -174,7 +174,8 @@ def main():
     settInnBilletterGS(seterGS)
     settInnBilletterHS(seterHS)
 
-
+    con.commit()
+    con.close()
 
 if __name__ == "__main__":
     main()
