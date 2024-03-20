@@ -26,17 +26,28 @@ CREATE TABLE Sal (
     FOREIGN KEY (SID) REFERENCES TeaterStykke(SID)
 );
 
-CREATE TABLE Sete (
-    Område VARCHAR(50),
-    RadNr INT,
-    SeteNr INT,
-    PRIMARY KEY (Område, RadNr, SeteNr)
+CREATE TABLE SeteTilSete (
+    SeteID INT NOT NULL,
+    SeteNR INT,
+    PRIMARY KEY (SeteID)
 );
 
-CREATE TABLE OmrådeISal (
+CREATE TABLE RadTilSete (
+    SeteID INT NOT NULL,
+    RadNr INT,
+    PRIMARY KEY (SeteID)
+);
+
+CREATE TABLE OmrådeTilSete (
+    SeteID INT NOT NULL,
     Område VARCHAR(50),
-    SalNavn VARCHAR(50) NOT NULL,
-    PRIMARY KEY (Område, SalNavn),
+    PRIMARY KEY (SeteID)
+);
+
+CREATE TABLE SalTilSete (
+    SeteID INT NOT NULL,
+    SalNavn VARCHAR(50),
+    PRIMARY KEY (SeteID),
     FOREIGN KEY (SalNavn) REFERENCES Sal(SalNavn)
 );
 
