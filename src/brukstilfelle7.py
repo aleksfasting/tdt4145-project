@@ -4,14 +4,15 @@ def finnSkuesplillere(navn):
     """SQL Select for å finne skuesplillere som har split sammen med 'navn'"""
 
     cursor.fetchall()
-    
+
     cursor.execute(
-        """SELECT DISTINCT P1.Navn AS Skuespiller1, P2.Navn AS SKUESPILLER2, RIA1.SID
-        FROM    (((Person AS P1 NATURAL JOIN Skuespiller) NATURAL JOIN SpillerRolle AS SR1)
-                NATURAL JOIN RolleIAkt AS RIA1)
-                INNER JOIN
-                (((Person AS P2 NATURAL JOIN Skuespiller) NATURAL JOIN SpillerRolle AS SR2)
-                NATURAL JOIN RolleIAkt AS RIA2) ON (RIA1.SID = RIA2.SID AND RIA1.AktNr = RIA2.AktNr)
+        """SELECT DISTINCT P1.Navn AS Skuespiller1, P2.Navn AS SKUESPILLER2, TS.Navn AS Skuespill 
+FROM    (((Person AS P1 NATURAL JOIN Skuespiller) NATURAL JOIN SpillerRolle AS SR1)
+        NATURAL JOIN RolleIAkt AS RIA1)
+        INNER JOIN
+        (((Person AS P2 NATURAL JOIN Skuespiller) NATURAL JOIN SpillerRolle AS SR2)
+        NATURAL JOIN RolleIAkt AS RIA2) ON (RIA1.SID = RIA2.SID AND RIA1.AktNr = RIA2.AktNr)
+        INNER JOIN TeaterStykke AS TS ON (RIA1.SID = TS.SID)
         WHERE Skuespiller1 = ? AND NOT Skuespiller2 = ?""",
         (navn, navn)
         )
