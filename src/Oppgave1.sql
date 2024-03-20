@@ -12,8 +12,8 @@ INSERT INTO Forestilling(`Dato`, `Tid`) VALUES
     ('2024-02-14','18:30');
 
 INSERT INTO TeaterStykke(`SID`, `Navn`, `Forfatter`, `Tid`) VALUES 
-    (1, 'Kongsemnene', 'Henrik Ibsen', 19.00),
-    (2, 'Størst av alt er kjærligheten', 'Jonas Corell Petersen', 18.30);
+    (1, 'Kongsemnene', 'Henrik Ibsen', '19:00'),
+    (2, 'Størst av alt er kjærligheten', 'Jonas Corell Petersen', '18:30');
 
 INSERT INTO Sal(`SalNavn`, `SID`) VALUES 
     ('Hovedscenen', 1),
