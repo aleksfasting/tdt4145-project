@@ -165,10 +165,36 @@ INSERT INTO RolleIAkt(`SID`, `RolleNavn`, `AktNr`) VALUES
     (2,'Åsmund Flaten',1);
 
 INSERT INTO spillerrolle(`PID`,`SID`,`RolleNavn`) VALUES
-    ()
+    (1, 1,'Haakon Haakonssønn'),
+    (2, 1,'Inga fra Vartejg'),
+    (3, 1,'Skule Jarl'),
+    (4, 1, 'Fru Ragnhild'),
+    (5, 1, 'Margrete'),
+    (6, 1, 'Sigrid/Ingebjørg'),
+    (7, 1, 'Biskop Nikolas'),
+    (8, 1, 'Gregorius Jonssønn'),
+    (9, 1, 'Paal Flida/Trønder'),
+    (10, 1, 'Baard Bratte/Trønder'),
+    (11, 1, 'Jatgeir Skald/Dagfinn Bonde'),
+    (12, 1, 'Peter'),
+    (17, 2,'Sunniva Du Mond Nordal'),
+    (18, 2,'Jo Sabiernak'),
+    (19, 2,'Marte M. Steinsholt'),
+    (20, 2,'Tor Ivar Hagen'),
+    (21, 2,'Trond-Ove Skrødal'),
+    (22, 2,'Natalie Grøndahl Tangen'),
+    (23, 2,'Åsmund Flaten');
 
 INSERT INTO medvirker(`PID`,`SID`,`Jobb`) VALUES
-    ()
+    (13, 1, 'Regi og musikkutvelgelse'),
+    (14, 1, 'Scenografi og kostymer'),
+    (15, 1, 'Lysdesign'),
+    (16, 1, 'Dramaturg'),
+    (24, 2, 'Regi'),
+    (25, 2, 'Scenografi og kostymer'),
+    (26, 2, 'Musikalsk ansvarlig'),
+    (27, 2, 'Lysdesign'),
+    (28, 2, 'Dramaturg');
 
 INSERT INTO sete(`Område`,`RadNr`,`SeteNr`) VALUES
     ()
