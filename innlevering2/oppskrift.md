@@ -127,4 +127,8 @@ Forventet output fra denne kjøringen er:
 
 ## runner.py
 
-Vi har laget et python program som kjører eksempelkode for alle de 7 brukstilfellene.
+Vi har laget et automatisert python program som kjører eksempelkode for alle de 7 brukstilfellene. Denne returnerer de samme som eksemplene over. Dersom denne koden skal kjøres flere ganger, så må teaterDB.db slettes. Den kan kjøres ved:
+
+```
+python3 runner.py
+```
