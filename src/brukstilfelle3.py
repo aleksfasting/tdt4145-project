@@ -6,12 +6,12 @@ cursor = con.cursor()
 ### Finn en rad som har 9 ledige seter
 cursor.execute(
 """SELECT S.Område, S.RadNr, COUNT(*) AS AntallLedige
-FROM Sete AS S
+FROM (SeteTilSete NATURAL JOIN RadTilSete NATURAL JOIN OmrådeTilSete) AS S
 WHERE (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
                                         NATURAL JOIN BillettSeteNr)
                                         NATULAR JOIN BillettKjøpForestilling
-                                        WHERE Tid = 18.30 AND Dato = 2024-02-03)
+                                        WHERE Tid = '18:30' AND Dato = '2024-02-03')
 GROUP BY Område, RadNr
 HAVING AntallLedige >= 9""")
 
@@ -33,19 +33,19 @@ VALUES (3, ?, ?)""",
 )
     cursor.execute(
 """INSERT INTO BillettKjøpForestilling
-VALUES (3, '2024-02-03', '18.30')"""
+VALUES (3, '2024-02-03', '18:30')"""
 )
     
     ### Finn 9 ledige seter
     cursor.execute(
 """SELECT *
-FROM Sete
+FROM (SeteTilSete NATURAL JOIN RadTilSete NATURAL JOIN OmrådeTilSete) AS S
 WHERE ( Område = ? AND RadNr = ? AND
         (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
                                         NATURAL JOIN BillettSeteNr)
                                         NATULAR JOIN BillettKjøpForestilling
-                                        WHERE Tid = 18.30 AND Dato = 2024-02-03))""",
+                                        WHERE Tid = '18:30' AND Dato = 2024-02-03))""",
 (valgtRad[0], valgtRad[1],))
     seter = cursor.fetchall()
 
