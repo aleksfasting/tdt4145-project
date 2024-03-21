@@ -46,7 +46,7 @@ Oppgave 3 besvarelsen består av filen: *oppgave3.py*. Denne filen vil finne 9 l
 $ python3 oppgave3.py
 ```
 
-Denne oppgaven har ingen forventet output.
+Denne oppgaven har ingen forventet output, men dersom man vil se hvilke tabeller som blir satt inn kan man aktivere `-f` flagget, slik som dette `python3 oppgave3.py -f`. 
 
 #### Oppgave 4
 

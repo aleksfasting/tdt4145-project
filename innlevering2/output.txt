@@ -1,0 +1,65 @@
+### OPPGAVE 1 - 3
+    Ingen output
+
+
+
+### OPPGAVE 4    (input: '2024-02-03')
+
+(1, 'Kongsemnene', '2024-02-03', '19:00', 27)
+(2, 'Størst av alt er kjærligheten', '2024-02-03', '18:30', 74)
+
+
+
+### OPPGAVE 5
+
+Haakon Haakonssonn|Arturo Scotti|Kongsemnene
+Inga fra Vartejg|Ingunn Beate Strige Oyen|Kongsemnene
+Skule Jarl|Hans Petter Nilsen|Kongsemnene
+Fru Ragnhild|Madeleine Brandtzæg|Kongsemnene
+Margrete|Synnove Fossum Eriksen|Kongsemnene
+Sigrid/Ingebjorg|Emma Caroline Deichmann|Kongsemnene
+Biskop Nikolas|Thomas Jensen Takyi|Kongsemnene
+Gregorius Jonssonn|Per Bogstad Gulliksen|Kongsemnene
+Paal Flida/Tronder|Isak Holmen Sorensen|Kongsemnene
+Baard Bratte/Tronder|Fabian Heidelberg Lunde|Kongsemnene
+Jatgeir Skald/Dagfinn Bonde|Emil Olafsson|Kongsemnene
+Peter|Snorre Ryen Tondel|Kongsemnene
+Sunniva Du Mond Nordal|Sunniva Du Mond Nordal|Storst av alt er kjærligheten
+Jo Sabiernak|Jo Sabiernak|Storst av alt er kjærligheten
+Marte M. Steinsholt|Marte M. Steinsholt|Storst av alt er kjærligheten
+Tor Ivar Hagen|Tor Ivar Hagen|Storst av alt er kjærligheten
+Trond-Ove Skrodal|Trond-Ove Skrodal|Storst av alt er kjærligheten
+Natalie Grondahl Tangen|Natalie Grondahl Tangen|Storst av alt er kjærligheten
+Åsmund Flaten|Åsmund Flaten|Storst av alt er kjærligheten
+
+
+
+### OPPGAVE 6
+
+2|Storst av alt er kjærligheten|2024-02-03|18:30|74
+1|Kongsemnene|2024-02-03|19:00|27
+1|Kongsemnene|2024-02-01|19:00|0
+1|Kongsemnene|2024-02-02|19:00|0
+1|Kongsemnene|2024-02-05|19:00|0
+1|Kongsemnene|2024-02-06|19:00|0
+2|Storst av alt er kjærligheten|2024-02-06|18:30|0
+2|Storst av alt er kjærligheten|2024-02-07|18:30|0
+2|Storst av alt er kjærligheten|2024-02-12|18:30|0
+2|Storst av alt er kjærligheten|2024-02-13|18:30|0
+2|Storst av alt er kjærligheten|2024-02-14|18:30|0
+
+
+
+### OPPGAVE 7    (input: 'Arturo Scotti')
+
+('Arturo Scotti', 'Ingunn Beate Strige Øyen', 'Kongsemnene')
+('Arturo Scotti', 'Hans Petter Nilsen', 'Kongsemnene')
+('Arturo Scotti', 'Madeleine Brandtzæg', 'Kongsemnene')
+('Arturo Scotti', 'Synnøve Fossum Eriksen', 'Kongsemnene')
+('Arturo Scotti', 'Emma Caroline Deichmann', 'Kongsemnene')
+('Arturo Scotti', 'Thomas Jensen Takyi', 'Kongsemnene')
+('Arturo Scotti', 'Per Bogstad Gulliksen', 'Kongsemnene')
+('Arturo Scotti', 'Isak Holmen Sørensen', 'Kongsemnene')
+('Arturo Scotti', 'Fabian Heidelberg Lunde', 'Kongsemnene')
+('Arturo Scotti', 'Emil Olafsson', 'Kongsemnene')
+('Arturo Scotti', 'Snorre Ryen Tøndel', 'Kongsemnene')
