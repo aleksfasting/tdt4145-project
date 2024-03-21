@@ -47,7 +47,7 @@ VALUES (2, '2024-02-03', '18:30')"""
 
 def leseDataGS():
     ### Hente data fra fil
-    fd = open("src/gamle-scene.txt")
+    fd = open("./gamle-scene.txt")
     dateGS = fd.readline()
 
     område = ''
@@ -102,7 +102,7 @@ VALUES (1, ?, 1)""",
 
 
 def leseDataHS():
-    fd = open("src/hovedscenen.txt")
+    fd = open("./hovedscenen.txt")
     dateHS = fd.readline()
 
     område = ''
