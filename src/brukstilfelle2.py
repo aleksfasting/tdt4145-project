@@ -88,7 +88,7 @@ VALUES (1, ?, ?)""",
 (num, radNr)
                 )
                     cursor.execute(
-"""INSERT INTO BillettSete
+"""INSERT INTO BillettSeteNr
 VALUES (1, ?, ?)""",
 (num, seteNr)
                 )
@@ -145,7 +145,7 @@ VALUES (2, ?, ?)""",
 (num, radNr + 1)
                 )
                     cursor.execute(
-"""INSERT INTO BillettSete
+"""INSERT INTO BillettSeteNr
 VALUES (2, ?, ?)""",
 (num, seteNr)
                 )

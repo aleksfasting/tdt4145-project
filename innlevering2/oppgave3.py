@@ -9,7 +9,7 @@ cursor.execute(
 FROM (SeteTilSete NATURAL JOIN RadTilSete NATURAL JOIN OmrådeTilSete) AS S
 WHERE (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
-                                        NATURAL JOIN BillettSete)
+                                        NATURAL JOIN BillettSeteNr)
                                         NATULAR JOIN BillettKjøpForestilling
                                         WHERE Tid = 18.30 AND Dato = 2024-02-03)
 GROUP BY Område, RadNr
@@ -43,7 +43,7 @@ FROM (SeteTilSete NATURAL JOIN RadTilSete NATURAL JOIN OmrådeTilSete) AS S
 WHERE ( Område = ? AND RadNr = ? AND
         (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
-                                        NATURAL JOIN BillettSete)
+                                        NATURAL JOIN BillettSeteNr)
                                         NATULAR JOIN BillettKjøpForestilling
                                         WHERE Tid = 18.30 AND Dato = 2024-02-03))""",
 (valgtRad[0], valgtRad[1],))
@@ -62,7 +62,7 @@ VALUES (3, ?, ?)""",
 (i, seter[i][1])
 )
         cursor.execute(
-"""INSERT INTO BillettSete
+"""INSERT INTO BillettSeteNr
 VALUES (3, ?, ?)""",
 (i, seter[i][2])
 )

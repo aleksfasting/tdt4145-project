@@ -28,7 +28,7 @@ CREATE TABLE Sal (
 
 CREATE TABLE SeteTilSete (
     SeteID INT NOT NULL,
-    SeteNR INT,
+    SeteNr INT,
     PRIMARY KEY (SeteID)
 );
 
@@ -118,7 +118,7 @@ CREATE TABLE BillettRadNr (
     FOREIGN KEY (KjøpID, Nummer) REFERENCES Billett(KjøpID, Nummer)
 );
 
-CREATE TABLE BillettSete (
+CREATE TABLE BillettSeteNr (
     KjøpID INT,
     Nummer INT,
     SeteNr INT NOT NULL,

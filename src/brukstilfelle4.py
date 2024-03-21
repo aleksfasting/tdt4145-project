@@ -26,7 +26,7 @@ def finnForestilling(date):
     cursor.execute(
     """SELECT SID, Navn, F.Dato, F.Tid, COUNT(KjøpID) AS AntallBilletter
     FROM    Forestilling AS F LEFT NATURAL JOIN (
-            BillettKjøpForestilling NATURAL JOIN BillettSete)
+            BillettKjøpForestilling NATURAL JOIN BillettSeteNr)
             NATURAL JOIN TeaterStykke
     WHERE F.Dato = ?
     GROUP BY SID, Navn, F.Dato, F.Tid""",
