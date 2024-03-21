@@ -11,7 +11,7 @@ WHERE (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
                                         NATURAL JOIN BillettSeteNr)
                                         NATULAR JOIN BillettKjøpForestilling
-                                        WHERE Tid = 18.30 AND Dato = 2024-02-03)
+                                        WHERE Tid = 18:30 AND Dato = '2024-02-03')
 GROUP BY Område, RadNr
 HAVING AntallLedige >= 9""")
 
@@ -33,7 +33,7 @@ VALUES (3, ?, ?)""",
 )
     cursor.execute(
 """INSERT INTO BillettKjøpForestilling
-VALUES (3, '2024-02-03', '18.30')"""
+VALUES (3, '2024-02-03', '18:30')"""
 )
     
     ### Finn 9 ledige seter
@@ -45,7 +45,7 @@ WHERE ( Område = ? AND RadNr = ? AND
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
                                         NATURAL JOIN BillettSeteNr)
                                         NATULAR JOIN BillettKjøpForestilling
-                                        WHERE Tid = 18.30 AND Dato = 2024-02-03))""",
+                                        WHERE Tid = '18:30' AND Dato = 2024-02-03))""",
 (valgtRad[0], valgtRad[1],))
     seter = cursor.fetchall()
 
