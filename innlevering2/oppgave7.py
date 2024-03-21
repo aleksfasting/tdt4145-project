@@ -25,6 +25,7 @@ def printRelasjon(table): ### For å printe litt finere enn vanlig for lister
 
 def main():
     navn = input("Skuespiller: ")
+    print()
     
     global cursor
     cursor = con.cursor()

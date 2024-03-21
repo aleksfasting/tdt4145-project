@@ -42,6 +42,7 @@ def printTable(table):
 def main():
     ### Spør bruker om gyldig dato
     date = input("Select date: (yyyy-mm-dd) ")
+    print()
     checkDate(date)
 
     global cursor
