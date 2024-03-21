@@ -1,5 +1,5 @@
 from connection import con
-from brukstilfelle2 import leseDataGS, leseDataHS
+from oppgave2 import leseDataGS, leseDataHS
 
 def settInnSete():
     cursor = con.cursor()

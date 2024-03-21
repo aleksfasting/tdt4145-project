@@ -6,7 +6,7 @@ cursor = con.cursor()
 ### Finn en rad som har 9 ledige seter
 cursor.execute(
 """SELECT S.Område, S.RadNr, COUNT(*) AS AntallLedige
-FROM Sete AS S
+FROM (SeteTilSete NATURAL JOIN RadTilSete NATURAL JOIN OmrådeTilSete) AS S
 WHERE (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
                                         NATURAL JOIN BillettSete)
@@ -39,7 +39,7 @@ VALUES (3, '2024-02-03', '18.30')"""
     ### Finn 9 ledige seter
     cursor.execute(
 """SELECT *
-FROM Sete
+FROM (SeteTilSete NATURAL JOIN RadTilSete NATURAL JOIN OmrådeTilSete) AS S
 WHERE ( Område = ? AND RadNr = ? AND
         (Område, RadNr, SeteNr) NOT IN    (SELECT Område, RadNr, SeteNr
                                         FROM ((BillettOmråde NATURAL JOIN BillettRadNr)
